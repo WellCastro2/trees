@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="h3 mb-4 text-gray-800">Plant Tree</h1>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Accordion -->
+            <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                <h6 class="m-0 font-weight-bold text-success">Create</h6>
+            </a>
+            <!-- Card Content - Collapse -->
+            <div class="collapse show" id="collapseCardExample">
+                <div class="card-body">
+                    <form method="post" class="user">
+                        {% csrf_token %}
+                    
+                        {{ form.non_field_errors }}
+                    
+                        {% for hidden_field in form.hidden_fields %}
+                        {{ hidden_field.errors }}
+                        {{ hidden_field }}
+                        {% endfor %}
+                    
+                        <table class="table">
+                        {% for field in form.visible_fields %}
+                            <tr>
+                            <th>{{ field.label_tag }}</th>
+                            <td>
+                                {{ field.errors }}
+                                {{ field }}
+                                {{ field.help_text }}
+                            </td>
+                            </tr>
+                        {% endfor %}
+                        </table>
+                        <br>
+                        <button class="btn btn-success btn-user btn-block" type="submit">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

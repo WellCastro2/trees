@@ -1,0 +1,20 @@
+<table id="list_trees" class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Account</th>
+        <th scope="col">Lat/Long</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for tree in tree_list %}
+      <tr>
+        <th><a href="{% url 'planted-detail' tree.uuid %}">{{ tree.tree.name }}</a></th>
+        <td>{{ tree.age }}</td>
+        <td>{{ tree.account }}</td>
+        <td>{{ tree.lat }}{{ tree.long }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+</table>

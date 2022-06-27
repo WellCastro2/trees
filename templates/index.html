@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<h1 class="h3 mb-4 text-gray-800">Home</h1>
+
+<div class="row">
+    <div class="col-xl-3 col-md-6 mb-4">
+        {% include 'widgets/card-info.html' with total=user.planteds_count text='Trees planted(me)' %}
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-lg-8">
+
+        <div class="card shadow mb-4">
+            <!-- Card Header - Accordion -->
+            <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                <h6 class="m-0 font-weight-bold text-success">My trees</h6>
+            </a>
+            <!-- Card Content - Collapse -->
+            <div class="collapse show" id="collapseCardExample">
+                <div class="card-body">
+                    {% include 'widgets/card-trees.html' with tree_list=planteds %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-lg-4">
+
+        <div class="card shadow mb-4">
+            <!-- Card Header - Accordion -->
+            <a href="#collapseCardPlant" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                <h6 class="m-0 font-weight-bold text-success">Tree</h6>
+            </a>
+            <!-- Card Content - Collapse -->
+            <div class="collapse show" id="collapseCardPlant">
+                <div class="card-body">
+                    <strong><a href="{% url 'planted-add' %}">Plant new tree!</a></strong>
+                    Thanks
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}
