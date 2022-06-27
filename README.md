@@ -20,12 +20,14 @@ Projeto teste
 ```bash
 make build
 ```
-#### O próximo comando irá carregar uma base inicial com usuários e demais conteúdos
-```bash
-make data
-```
+
 ```bash
 make run
+```
+
+#### Criar super usuário
+```bash
+make super
 ```
 
 ## Testes
@@ -35,17 +37,14 @@ make test
 
 ## Acessos
 
-```sh
-username: jack
-password: *mob1b}e
+![Screenshot](https://i.imgur.com/rORlSgN.png)
 
-127.0.0.1:8000
+
+```sh
+http://127.0.0.1:8000/
 ```
 
 ```sh
 Admin
-
-username: admin
-password: p?k:'kdh
-127.0.0.1:8000/admin
+http://127.0.0.1:8000/admin
 ```

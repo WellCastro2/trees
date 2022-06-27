@@ -1,16 +1,16 @@
 # Makefile
 
 build:
-	docker-compose build
+	docker-compose build && docker-compose up db &
 
-run: 
-	docker-compose up -d
+run:
+	docker-compose up &
+
+super:
+	docker-compose run web python manage.py createsuperuser
 
 stop:
 	docker-compose down
-
-data:
-	docker-compose run web python manage.py loaddata core/dump/db.json
 
 test:
 	docker-compose run web pytest
